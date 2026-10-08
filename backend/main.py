@@ -74,8 +74,6 @@ def parse_pipeline(pipeline: Pipeline):
 
     is_dag = visited == num_nodes
 
-    # A node with zero edges touching it isn't part of the pipeline.
-    # A lone node with no others to connect to doesn't count as disconnected.
     is_connected = num_nodes <= 1 or all(degree[n] > 0 for n in node_ids)
 
     return {
